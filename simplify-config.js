@@ -4,25 +4,20 @@ CKEDITOR.on( 'dialogDefinition', function( ev )
 		var dialogName = ev.data.name;
 		var dialogDefinition = ev.data.definition;
  
-		if ( dialogName == 'image' ) {
+		if (dialogName == 'image') {
 
-			// FCKConfig.ImageDlgHideAdvanced = true	
 			dialogDefinition.removeContents('advanced');
-
-			// FCKConfig.ImageDlgHideLink = true
 			dialogDefinition.removeContents('Link');
-
-			dialogDefinition.removeContents('width');
 
 			// Get a reference to the 'Link Info' tab. 
 			var infoTab = dialogDefinition.getContents('info'); 
-			infoTab.remove( 'ratioLock' ); 
-        	infoTab.remove( 'txtHeight' );          
-        	infoTab.remove( 'txtWidth' );          
-        	infoTab.remove( 'txtBorder'); 
-        	infoTab.remove( 'txtHSpace'); 
-        	infoTab.remove( 'txtVSpace'); 
-        	infoTab.remove( 'cmbAlign' );
+			infoTab.remove('ratioLock'); 
+        	infoTab.remove('txtHeight');          
+        	infoTab.remove('txtWidth');          
+        	infoTab.remove('txtBorder'); 
+        	infoTab.remove('txtHSpace'); 
+        	infoTab.remove('txtVSpace'); 
+        	infoTab.remove('cmbAlign');
 
         	dialogDefinition.onLoad = function () { 
 	            var dialog = CKEDITOR.dialog.getCurrent(); 
@@ -30,5 +25,23 @@ CKEDITOR.on( 'dialogDefinition', function( ev )
 	            elem.getElement().hide(); 
 	        }; 
 		}
+
+		else if (dialogName == 'table') { 
+        	dialogDefinition.removeContents('advanced'); 
+ 			var infoTab = dialogDefinition.getContents('info');
+ 			infoTab.remove('txtCellPad');
+ 			infoTab.remove('txtCellSpace');
+ 			infoTab.remove('txtBorder');
+ 			infoTab.remove('txtHeight');
+ 			infoTab.remove('txtWidth');
+ 			infoTab.remove('cmbAlign');
+ 			infoTab.remove('txtCaption');
+ 			infoTab.remove('txtSummary');
+ 		} 
+
+ 		else if (dialogName = 'link') {
+			dialogDefinition.removeContents('advanced');
+			dialogDefinition.removeContents('target');
+ 		}
  
 	});
