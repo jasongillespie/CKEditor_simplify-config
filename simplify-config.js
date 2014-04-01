@@ -1,3 +1,8 @@
+CKEDITOR.editorConfig = function( config ) {
+	config.allowedContent = true; // allows all HTML elements, including ones not in the default set (e.g. <figure> and <figcaption>)
+	CKEDITOR.timestamp='LOLCACHE'; // bogus value forces a reset of custom styles
+};
+
 CKEDITOR.on( 'dialogDefinition', function( ev ) {
 	
 	// Take the dialog name and its definition from the event data.
